@@ -4,7 +4,7 @@ session_start();
     include('connect.php');
         $email =mysqli_real_escape_string ($dbconnect,$_POST['email']);
         $password =  $_POST['password'];
-
+       // encrypt with sha1 algorithm
         $encrypted_password = sha1($password);
 
         $check_email = mysqli_query($dbconnect,"SELECT email FROM `users` WHERE `email` = '$email' AND `password`='$encrypted_password'");
